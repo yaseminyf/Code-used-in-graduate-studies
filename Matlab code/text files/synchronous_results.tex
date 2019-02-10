@@ -1,0 +1,222 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\parindent=0mm
+\parskip=\medskipamount
+\newcommand{\R}{{\bf R}}
+\def\bbbr{{\bf R}}
+\newtheorem{theorem}{Theorem}
+%\def\bbbr{{\rm I\!R}}
+
+\begin{document}
+\title{The results of Matlab implementations of synchronous and asynchronous Jacobi with planar search}
+\author{}
+\date{}
+
+
+\maketitle
+The below results belong to experiments done using sequential and asynchronous Jacobi iterations 
+where a planar search is done after $k = cg$ loops where $c \in {1 \ldots 6}$. 
+
+The residual vector is not updated between two planar searches.
+A running copy o the residual vector is updated in between two planar searches.
+
+When the $\delta_i$ values are included in the computations, they are only included
+in the planar search. The running residual vector is updated without the $\delta_i$ values.
+The included $\delta_i$ values are the accumulated $\delta_i$ values between two planar searches.
+
+The asynchronous implementation is done using $g$-delayed residual vector, i.e. giving the effect of
+a parallel system where each block is assigned to its own processor.
+
+The number o block $g$ is fixed to be 8.
+
+The numbers that are reported are the number of planar searches done.
+
+In the synchronous experiments after 10000 loops, i.e. $10000*g$ updates, in the asynchronous experiments
+after 30000 updates if the convergence is not reached a -- is put in place of number of planar searches.
+
+The value for $\epsilon$ is  
+1.0e-5 except for test matrices WL1033 and WL1850. For these two matrices 
+$\epsilon = 1.0e-3$.
+
+If one wants to compute the number of updates, it is calculated by $k*g$ multiplied by the figure given in the tables.
+\begin{verbatim}
+"Jacobi, synchronous, p=0 with planar search after k loops"	
+										
+matrix/k	1	2	3	4	5	6
+							
+1	     33    11	9	6	6	5							
+2	     14	7	6	4	4	3							
+3	     23	8	8	5	5	4							
+4	     20	8	7	5	5	4							
+5	    100	--   31   710    19	--							
+6	   2257	--	--	--	--	--							
+7	   1682	--  1370	--	--	--							
+8	   1582	--  1157	--	--	--							
+9	     24    15    10    13	8    11							
+10	   5404	--	--	--	--	--							
+11	     21	--	9    20	8    12							
+12	    572	--  115	--  111	--							
+													
+												
+"Jacobi, synchronous, p=1, delta values discarded, with planar search after k loops"												
+													
+matrix/k	1	2	3	4	5	6							
+													
+1	     22	9	8	5	5	4							
+2	     15	7	5	4	3	3							
+3	     18	7	6	4	4	3							
+4	     14	7	6	5	4	3							
+5	     66	--   28	--   19	--							
+6	    554	--  759	--  724	--							
+7	    373	--  376	--  238	--							
+8	    334	--  265	--  303	--							
+9	     19    11	9	9	6	8							
+10	    341	--  460	-- 1923	--							
+11	     16    14	8    10	5	8							
+12	    431	--  113	--  112	--							
+													
+													
+"Jacobi, synchronous, p=1, delta values included, with planar search after k loops"												
+													
+matrix/k	1	2	3	4	5	6			
+
+1	     84	--  664	--	--	--							
+2	     39    51    77  1926    63    21							
+3	     44   152   271   249   121    93							
+4	     53	--   50    38   203    27							
+5	    246	--	--	--	--	--							
+6	   1571	--	--	--	--	--							
+7	   1208	--	--	--	--	--							
+8	    994	--	--	--	--	--							
+9	     67	--   61	--  140  1152							
+10	   1252	--	--	--	--	--							
+11	     48	--   79	--   36	--							
+12	   1915	-- 1076	--	--	--							
+													
+													
+"Jacobi, synchronous, p=Ds, delta values discarded, with planar search after k loops"												
+													
+matrix/k	1	2	3	4	5	6			
+
+1	     26	7	5	4	4	3							
+2	     16	6	5	4	3	3							
+3	     21	6	5	4	4	3							
+4	     17	7	5	4	4	3							
+5	     93	--   14   305    11    50							
+6	   1072   499    92	--  887	--							
+7	   1470	--   67	--  195	--							
+8	   1369	--   48	--  140   228							
+9	     23    12	6	8	5	7							
+10	   2208	--  359	--	--	--							
+11	     21    12	6	8	5	5							
+12	    397	--   41  1714    34   845							
+													
+													
+"Jacobi, synchronous, p=Ds, delta values included"												
+													
+matrix/k	1	2	3	4	5	6		
+
+1          13	8	7	5	5	4							
+2	     11	7	5	5	4	4							
+3	     12	6	6	5	5	4							
+4	     11	7	6	5	5	4							
+5	     30    76    14    56    13    30							
+6	     80	--   87   479   155	--							
+7	     79   242    86   291    95   447							
+8	     80	--   76   260    57   311							
+9	     12    11	8	9	7	8							
+10	     66  3047    67  1860   405	--							
+11	     12    12	7	9	6	6							
+12	    100   696    44   416    39   484							
+													
+													
+"Jacobi, asynchronous, p=0"												
+													
+matrix/k	1	2	3	4	5	6			
+
+1	     33    14    10	9	7	6							
+2	     14	7	6	6	4	4							
+3	     23	8	8	8	5	5							
+4	     20    11	8	7	6	5							
+5	    100    30    45    30    15    41							
+6	   2257	--	--	--	--	--							
+7	   1682   427	--  672   330	--							
+8	   1582   367	--  562   345	--							
+9	     24    11    12	9	7	8							
+10	      -- 1875	--	--	--	--							
+11	     21	9    13	9	6	7							
+12	    572   180	--  118    94	--							
+													
+													
+"Jacobi, asynchronous, p=1, delta values discarded"												
+													
+matrix/k	1	2	3	4	5	6			
+
+1	     22    12	9	8	6	5							
+2	     15	7	6	5	4	4							
+3	     18	7	7	7	5	4							
+4	     14	9	7	6	5	4							
+5	     66    24    42    28    14	--							
+6	    556   392	--  442	--	--							
+7	    382   183	--  183   102	--							
+8	    385   161	--  176   108	--							
+9	     19	9    11	9	5	7							
+10	    341   198	--  357	--	--							
+11	     16	8	9	7	5	8							
+12	    431   115	--  101    89	--							
+													
+													
+"Jacobi, asynchronous, p=1, delta values included"										
+													
+matrix/k	1	2	3	4	5	6		
+
+1	     84    75    62    47    46    45							
+2	     39    55    59    39    47    48							
+3	     44    60    70    54    43    48							
+4	     53    57    34    43    43    41							
+5	    246   190	--  113   110	--							
+6        1571	--	--	--	--	--							
+7	   1208  1001	--  539	--	--							
+8	    994   913	--  504	--	--							
+9	     67    69    56    51    44    56							
+10	   1252   729	--  393	--	--							
+11	     48    56    54    46    34    43							
+12	   1915   953	--  383   353	--							
+													
+													
+"Jacobi, asynchronous, p=Ds, delta values discarded"										
+													
+matrix/k	1	2	3	4	5	6	
+
+1	     26	9	6	6	5	4							
+2	     16	7	6	5	4	4							
+3	     21	7	6	5	4	4							
+4	     17	8	7	5	4	4							
+5	     93    16	--   12    11    39							
+6	   1072   800	--   75   260	--							
+7	   1470   735	--   78    49   166							
+8	   1369   514	--   55    49	--							
+9	     23	8    10	6	5	6							
+10	   2208   425	--  427	--	--							
+11	     21	7	8	6	5	5							
+12	    397    40	--   39    26   595							
+													
+													
+"Jacobi, asynchronous, p=Ds, delta values included"												
+													
+matrix/k	1	2	3	4	5	6		
+1	     13    21    27    23    22    20							
+2	     11    15    34    13    10    10							
+3	     12    15    23    21    16    16							
+4	     11    12    27    16    16    12							
+5	     30    35	--   47    82	--							
+6	     80   318	--  241	--	--							
+7	     79   170	--  150   367	--							
+8	     80   138	--  152   290	--							
+9	     12    18    86    17    20    40							
+10	     66   659	--  315	--	--							
+11	     12    17    81    16    14    54							
+12	    100   135	--   97   242	--							
+\end{verbatim}
+\end{document}
+

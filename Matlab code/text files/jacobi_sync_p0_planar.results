@@ -1,0 +1,154 @@
+kcount=1
+matfile=1
+number of iterations 33
+number of planar searches 33
+resnorm at zero 7.431359e+00
+resnorm at finish 6.669568e-05
+
+matfile=2
+number of iterations 14
+number of planar searches 14
+resnorm at zero 1.429664e+01
+resnorm at finish 1.156948e-04
+
+matfile=3
+number of iterations 23
+number of planar searches 23
+resnorm at zero 8.297696e+00
+resnorm at finish 7.088692e-05
+
+matfile=4
+number of iterations 20
+number of planar searches 20
+resnorm at zero 1.223256e+01
+resnorm at finish 9.540474e-05
+
+matfile=5
+number of iterations 100
+number of planar searches 100
+resnorm at zero 1.259613e+01
+resnorm at finish 1.234234e-04
+
+matfile=6
+number of iterations 2257
+number of planar searches 2257
+resnorm at zero 1.115627e+01
+resnorm at finish 1.115462e-02
+
+matfile=7
+number of iterations 1682
+number of planar searches 1682
+resnorm at zero 1.335682e+01
+resnorm at finish 1.334666e-04
+
+matfile=8
+number of iterations 1582
+number of planar searches 1582
+resnorm at zero 1.416384e+01
+resnorm at finish 1.409929e-04
+
+matfile=9
+number of iterations 24
+number of planar searches 24
+resnorm at zero 1.645362e+01
+resnorm at finish 1.208713e-04
+
+matfile=10
+number of iterations 5404
+number of planar searches 5404
+resnorm at zero 1.736102e+01
+resnorm at finish 1.735671e-02
+
+matfile=11
+number of iterations 21
+number of planar searches 21
+resnorm at zero 1.844315e+01
+resnorm at finish 1.286905e-04
+
+matfile=12
+number of iterations 572
+number of planar searches 572
+resnorm at zero 2.251383e+01
+resnorm at finish 2.240484e-04
+
+kcount=2
+matfile=1
+number of iterations 22
+number of planar searches 11
+resnorm at zero 7.431359e+00
+resnorm at finish 3.269433e-05
+
+matfile=2
+number of iterations 14
+number of planar searches 7
+resnorm at zero 1.429664e+01
+resnorm at finish 3.935692e-05
+
+matfile=3
+number of iterations 16
+number of planar searches 8
+resnorm at zero 8.297696e+00
+resnorm at finish 2.519014e-05
+
+matfile=4
+number of iterations 16
+number of planar searches 8
+resnorm at zero 1.223256e+01
+resnorm at finish 6.704902e-05
+
+kcount=1
+matfile=1
+number of iterations 33
+number of planar searches 33
+resnorm at zero 7.431359e+00
+resnorm at finish 6.669568e-05
+
+matfile=2
+number of iterations 14
+number of planar searches 14
+resnorm at zero 1.429664e+01
+resnorm at finish 1.156948e-04
+
+matfile=3
+number of iterations 23
+number of planar searches 23
+resnorm at zero 8.297696e+00
+resnorm at finish 7.088692e-05
+
+matfile=4
+number of iterations 20
+number of planar searches 20
+resnorm at zero 1.223256e+01
+resnorm at finish 9.540474e-05
+
+matfile=5
+number of iterations 100
+number of planar searches 100
+resnorm at zero 1.259613e+01
+resnorm at finish 1.234234e-04
+
+kcount=2
+matfile=5
+number of iterations 30000
+number of planar searches 15000
+resnorm at zero 1.259613e+01
+resnorm at finish 2.370047e-02
+
+matfile=6
+number of iterations 10000
+number of planar searches 5000
+resnorm at zero 1.115627e+01
+resnorm at finish 5.385492e+00
+
+matfile=6
+number of iterations 10000
+number of planar searches 5000
+resnorm at zero 1.115627e+01
+resnorm at finish 5.385492e+00
+
+matfile=7
+number of iterations 10000
+number of planar searches 5000
+resnorm at zero 1.335682e+01
+resnorm at finish 5.419913e+00
+

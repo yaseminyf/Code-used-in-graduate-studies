@@ -1,0 +1,64 @@
+# Makefile for SPARSPAK-C
+#
+
+srcdir = /Home/origin10/yasemin
+VPATH = /Home/origin10/yasemin
+
+CC = cc 
+
+LIBS =  -lm
+RANLIB = ranlib
+
+CFLAGS = -64
+
+.c.o:
+	$(CC) -c  $(CFLAGS) $<
+
+SHELL = /bin/sh
+SPR_PAK = sparspakc.a
+
+###############################
+
+LIST1 = inxywb.o
+
+LIST2 =  copysi.o genmmd.o mmdelm.o mmdint.o mmdnum.o mmdupd.o\ 
+	 smbfct.o sorts1.o ipendb.o fmadjy.o build.o rcopyl.o orcolb.o
+LIST3 =  genls3.o rdeqns.o rkchk2.o rwprep.o zerols.o zerorv.o lsqslvsn3.o
+
+LIST4 = solution.o
+
+LIST5 = gsfct.o gsslv.o adaij5.o
+
+ALL_LISTS = $(LIST1) $(LIST2) $(LIST3) $(LIST4) $(LIST5)
+
+HLIST = data_struct.h
+
+# Different configurations
+
+sparse: part1 part2 part3 part4 part5
+
+$(LIST1): $(HLIST)
+part1: $(LIST1)
+	ar ru sparspakc.a $(LIST1); $(RANLIB) sparspakc.a
+
+$(LIST2): $(HLIST) 
+part2: $(LIST2)
+	ar ru sparspakc.a $(LIST2); $(RANLIB) sparspakc.a
+
+$(LIST3): $(HLIST) 
+part3: $(LIST3)
+	ar ru sparspakc.a $(LIST3); $(RANLIB) sparspakc.a
+
+$(LIST4): $(HLIST) 
+part4: $(LIST4)
+	ar ru sparspakc.a $(LIST4); $(RANLIB) sparspakc.a
+	
+$(LIST5): $(HLIST) 
+part5: $(LIST5)
+	ar ru sparspakc.a $(LIST5); $(RANLIB) sparspakc.a	
+
+clean:
+	/bin/rm -f *.o core 
+
+
+
